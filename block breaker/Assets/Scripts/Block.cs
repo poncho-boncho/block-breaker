@@ -8,11 +8,13 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip blockSound;
 
     Level level;
+    GameStatus gameStatus;
 
     private void Start()
     {
         level = FindObjectOfType<Level>();   
-        level.CountBreakableBlocks(); 
+        level.CountBreakableBlocks();
+        gameStatus = FindObjectOfType<GameStatus>(); 
     }
 
 
@@ -26,5 +28,6 @@ public class Block : MonoBehaviour
          AudioSource.PlayClipAtPoint(blockSound, Camera.main.transform.position);
         Destroy(gameObject);    
         level.BlockDestroyed();
+        gameStatus.AddToScore();
     }
 }

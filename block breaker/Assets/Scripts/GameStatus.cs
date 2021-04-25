@@ -6,6 +6,9 @@ public class GameStatus : MonoBehaviour
 {
 
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
+    [SerializeField] int pointsPerBlockDestroyed = 40;
+
+    [SerializeField] int currentScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +20,10 @@ public class GameStatus : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+    }
+    
+    public void AddToScore()
+    {
+        currentScore += pointsPerBlockDestroyed;
     }
 }
