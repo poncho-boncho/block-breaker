@@ -1900,7 +1900,7 @@ PrefabInstance:
     - target: {fileID: 3533624224047971489, guid: f4403b2802393194db8691596476dd62, type: 3}
       propertyPath: paddle1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1601183448}
     - target: {fileID: 3533624224047971492, guid: f4403b2802393194db8691596476dd62, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -5365,6 +5365,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6610721823855598196, guid: b0e71c842ac93c047a695563a991504a, type: 3}
   m_PrefabInstance: {fileID: 1934593697}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601183448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3265165946529400214, guid: b371d52fe46f55b41b80d83e47f0d9ae, type: 3}
+  m_PrefabInstance: {fileID: 1510940537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ca1701c352257478ed80f8d547161c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1605063741
 PrefabInstance:
   m_ObjectHideFlags: 0
