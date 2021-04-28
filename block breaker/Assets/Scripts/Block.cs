@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     
     [SerializeField] AudioClip blockSound;
+    [SerializeField] GameObject blockSparklesVFX;
 
     Level level;
     GameStatus gameStatus;
@@ -24,10 +25,22 @@ public class Block : MonoBehaviour
     }
 
     private void DestroyBlock()
-    {
-         AudioSource.PlayClipAtPoint(blockSound, Camera.main.transform.position);
-        Destroy(gameObject);    
+    { 
+        PlayBlockDestroySFX();
         level.BlockDestroyed();
         gameStatus.AddToScore();
+        TriggerSparklesVFX();
+    }
+
+    private void PlayBlockDestroySFX()
+    {
+        AudioSource.PlayClipAtPoint(blockSound, Camera.main.transform.position);
+        Destroy(gameObject);   
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
+        Destroy(sparkles, 2f);
     }
 }
