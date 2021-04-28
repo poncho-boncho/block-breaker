@@ -13,15 +13,19 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        level = FindObjectOfType<Level>();   
-        level.CountBreakableBlocks();
+
+        CountBreakableBlocks();
         gameStatus = FindObjectOfType<GameStatus>(); 
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       DestroyBlock();
+        if (tag == "Breakable")
+        {
+            DestroyBlock();
+        }
+       
     }
 
     private void DestroyBlock()
@@ -42,5 +46,13 @@ public class Block : MonoBehaviour
     {
         GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles, 2f);
+    }
+    private void CountBreakableBlocks()
+    {
+        level = FindObjectOfType<Level>();   
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
     }
 }
